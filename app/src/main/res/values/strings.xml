@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Megha  Naada</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_placeholder">Title</string>
+    <string name="news_placeholder">News</string>
+    <string name="sports_info_placeholder">Here is some news</string>
+    <string name="empty_screen">We do not have anything\nhere right now. Please Retry</string>
+    <string name="btn_retry">Retry</string>
+
+
+    <string name="server_error">Server Error. Try Again Later</string>
+
+    <string name="loading_download">Loading</string>
+
+    <string-array name="sports_titles">
+        <item>Flood - Sept 2019</item>
+        <item>Flood - December 2018</item>
+        <item>Flash Flood - November 2018</item>
+        <item>Flood - October 2018</item>
+        <item>Flash Fllod - May 2018</item>
+    </string-array>
+
+    <string-array name="sports_sub_titles">
+        <item>	Kelaniya and Wattala in Gampaha District, north east of the capital Colombo	</item>
+        <item>	Mullaitivu, Killinochchi, Mannar, Vavuniya and Jaffna.	</item>
+        <item>	Jaffna, Sri Lanka and Tamil Naadu India	</item>
+        <item>	Kalutara, Galle, Rathnapura, Kegalle districts	</item>
+        <item>	North Western of SL	</item>
+    </string-array>
+
+    <string-array name="sports_info">
+        <item>	As of 25 September a total of 14,899 people (3,696 families) had been displaced across the country and were staying in 42 relief shelters. DMC said that 30 houses have been completely destroyed, with a further 821 damaged	</item>
+        <item>	Sri Lanka’s Department of Meteorology said 365.1mm of rain fell in Maankulam, Mullaitivu district, in 24 hours to 22 December. The worst-hit areas were the districts of Mullaitivu, Killinochchi, Mannar, Vavuniya and Jaffna.Over 500 homes have been destroyed (388 in Killinochchi) and 4,636 damaged. At one point over 11,000 people were evacuated. Military and police were involved in rescue operations.	</item>
+        <item>	Tropical cyclone Gaja formed over the Bay of Bengal on 10 November moving west-south-west offshore towards southern India and northern Sri Lanka. Gaja made landfall between Nagapattinam and Vedaranniyam towns in Tamil Nadu State, India, on 15 November, with maximum sustained winds up to 139 km/h.	</item>
+        <item>	DMC said that a total of 5,834 people from 1,318 families are currently displaced and staying in 21 temporary relocation centers in the districts of Colombo (5,654 people), Kalutara (58) and Nuwara Eliya (122). Around 1,700 homes and buildings have been severely damaged, with around 35 totally destroyed.	</item>
+        <item>	By May 24, Marawila and surrounding areas had received over 350mm (13 inches) of rain in four days. Government agencies issuing a series of early warning alerts about potential threats, experts say.	</item>
+    </string-array>
+</resources>

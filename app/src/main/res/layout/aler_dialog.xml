@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:text="Success"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="4dp">
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="District"
+                android:textAlignment="textStart"
+                android:textColor="@color/dark"
+                android:textSize="12sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/district"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="-"
+                android:textAlignment="textStart"
+                android:textColor="@color/dark"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="4dp">
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Risk Status"
+                android:textAlignment="textStart"
+                android:textColor="@color/dark"
+                android:textSize="12sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/risk_status"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="-"
+                android:textAlignment="textStart"
+                android:textColor="@color/dark"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="4dp">
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Nearest River"
+                android:textAlignment="textStart"
+                android:textColor="@color/dark"
+                android:textSize="12sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/nearest_river"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="-"
+                android:textAlignment="textStart"
+                android:textColor="@color/dark"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="4dp">
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Water Level (m)"
+                android:textAlignment="textStart"
+                android:textColor="@color/dark"
+                android:textSize="12sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/water_level"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="-"
+                android:textAlignment="textStart"
+                android:textColor="@color/dark"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="4dp">
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Increased Water Level"
+                android:textAlignment="textStart"
+                android:textColor="@color/dark"
+                android:textSize="12sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/increased_water_level"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="-"
+                android:textAlignment="textStart"
+                android:textColor="@color/dark"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="4dp">
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Nearest Safe Location"
+                android:textAlignment="textStart"
+                android:textColor="@color/dark"
+                android:textSize="12sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/nearest_safe_location"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="-"
+                android:textAlignment="textStart"
+                android:textColor="@color/dark"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
