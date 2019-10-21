@@ -4,7 +4,7 @@ package lk.mobile.meghanaada.model;
  * Created by ravi on 16/11/17.
  */
 
-public class Contact {
+public class Risk {
     String name;
     String district;
     String risk;
@@ -13,7 +13,7 @@ public class Contact {
     String increased_water_level;
     String safest_location_near;
 
-    public Contact(String name, String district, String risk, String water_level, String water_level_near_river, String increased_water_level, String safest_location_near) {
+    public Risk(String name, String district, String risk, String water_level, String water_level_near_river, String increased_water_level, String safest_location_near) {
         this.name = name;
         this.district = district;
         this.risk = risk;

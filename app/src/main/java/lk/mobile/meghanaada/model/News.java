@@ -4,7 +4,7 @@ package lk.mobile.meghanaada.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Sport {
+public class News {
 
     @SerializedName("imageUrl")
     private String mImageUrl;
@@ -15,7 +15,7 @@ public class Sport {
     @SerializedName("title")
     private String mTitle;
 
-    public Sport(String mInfo, String mSubTitle, String mTitle) {
+    public News(String mInfo, String mSubTitle, String mTitle) {
         this.mInfo = mInfo;
         this.mSubTitle = mSubTitle;
         this.mTitle = mTitle;

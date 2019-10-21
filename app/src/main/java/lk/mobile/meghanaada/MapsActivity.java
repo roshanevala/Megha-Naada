@@ -72,6 +72,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     LatLng currentLatLng;
     String currentLat;
     String currentLng;
+    boolean mapFetchStatus;
 
     private GoogleApiClient mGoogleApiClient;
     private Location mLocation;
@@ -89,6 +90,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        mapFetchStatus = true;
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -114,9 +116,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         checkLocation();
 
 
-        mapDataFetch();
-
-
     }
 
 
@@ -124,8 +123,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         CommonUtils.getInstance().showProgressDialog(MapsActivity.this, R.string.loading_download);
         // Sending String Request to Server
-        Map<String, Object> jsonParams = new HashMap<String, Object>();
-//        jsonParams.put("lastModifiedDate", user.getLastSyncDateProducts());
 
 
         String url = "https://pmmpublisher.pps.eosdis.nasa.gov/opensearch?q=flood_nowcast&lat=" + currentLat + " &lon=" + currentLng + "&limit=20&startTime=" + monthBeforeDate + "&endTime=" + today;
@@ -267,6 +264,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         currentLatLng = latLng;
         currentLat = Double.toString(location.getLatitude());
         currentLng = Double.toString(location.getLongitude());
+        if (currentLng != null && currentLat != null && mapFetchStatus) {
+            mapDataFetch();
+            mapFetchStatus = false;
+        }
     }
 
     private boolean checkLocation() {

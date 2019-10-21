@@ -1,7 +1,5 @@
 package lk.mobile.meghanaada;
 
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -10,53 +8,43 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.volley.Response;
-import com.android.volley.toolbox.StringRequest;
-
-import org.json.JSONArray;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import lk.mobile.meghanaada.adapter.ContactsAdapter;
-import lk.mobile.meghanaada.adapter.SportAdapter;
-import lk.mobile.meghanaada.model.Contact;
-import lk.mobile.meghanaada.model.Sport;
+import lk.mobile.meghanaada.adapter.RiskAdapter;
+import lk.mobile.meghanaada.adapter.NewsAdapter;
+import lk.mobile.meghanaada.model.Risk;
+import lk.mobile.meghanaada.model.News;
 import lk.mobile.meghanaada.utils.DividerItemDecoration;
 
-public class MainActivity extends AppCompatActivity implements SportAdapter.Callback, ContactsAdapter.ContactsAdapterListener {
+public class MainActivity extends AppCompatActivity implements NewsAdapter.Callback, RiskAdapter.ContactsAdapterListener {
 
     Button btnMaps;
 
     RecyclerView mRecyclerView;
-    SportAdapter mSportAdapter;
+    NewsAdapter mNewsAdapter;
 
     LinearLayoutManager mLayoutManager;
-    ArrayList<Sport> mSports;
+    ArrayList<News> mNews;
     private EditText searchView;
-    private List<Contact> contactList;
-    private ContactsAdapter mAdapter;
+    private List<Risk> riskList;
+    private RiskAdapter mAdapter;
     private RecyclerView recyclerView;
 
     @Override
@@ -75,8 +63,8 @@ public class MainActivity extends AppCompatActivity implements SportAdapter.Call
         setUp();
 
         recyclerView = findViewById(R.id.recycler_view);
-        contactList = new ArrayList<>();
-        mAdapter = new ContactsAdapter(this, contactList, this);
+        riskList = new ArrayList<>();
+        mAdapter = new RiskAdapter(this, riskList, this);
 
         // white background notification bar
         whiteNotificationBar(recyclerView);
@@ -125,42 +113,42 @@ public class MainActivity extends AppCompatActivity implements SportAdapter.Call
 
     private void fetchContacts() {
 
-        contactList.clear();
+        riskList.clear();
 
-        Contact contact = new Contact("Thimbirigasyaya", "Colombo", "Normal", "2.3", "Kelani River", "0.1", "-");
-        contactList.add(contact);
-        contact = new Contact("Dehiwala", "Colombo", "Normal", "2.3", "Kelani River", "0.1", "-");
-        contactList.add(contact);
-        contact = new Contact("Moratuwa", "Colombo", "Normal", "3	", "	Bolgoda Lake", "0.1", "-");
-        contactList.add(contact);
-        contact = new Contact("Kotte", "	Colombo", "Normal", "2.3", "	Kelani River", "0.1", "-");
-        contactList.add(contact);
-        contact = new Contact("Negombo", "Gampaha", "Normal", "1.6", "Maha Oya", "0.1", "-");
-        contactList.add(contact);
-        contact = new Contact("Kandy", "Kandy", "Normal", "3.7", "Mahaweli", "0.1", "-");
-        contactList.add(contact);
-        contact = new Contact("Sainthamarathu", "Ampara", "Normal", "2.3", "Kelani River", "0.1", "-");
-        contactList.add(contact);
-        contact = new Contact("Vavuniya", "Vavuniya", "Normal", "2.3", "Kelani River", "0.1", "-");
-        contactList.add(contact);
-        contact = new Contact("Galle", "Galle", "Normal", "3", "Bolgoda Lake", "0.1", "-");
-        contactList.add(contact);
-        contact = new Contact("Trincomalee Town and Gravets", "Trincomalee	", "	Normal	", "	2.3	", "	Kelani River	", "	0.1	", "	-	");
-        contactList.add(contact);
-        contact = new Contact("Manmunai North	", "Batticaloa	", "Normal	", "	1.6	", "	Maha Oya	", "	0.1	", "	-	");
-        contactList.add(contact);
-        contact = new Contact("Nallur	", "Jaffna	", "Normal	", "	3.7	", "	Mahaweli	", "	0.1	", "	-	");
-        contactList.add(contact);
-        contact = new Contact("Katana	", "Gampaha	", "Normal	", "	2.3	", "	Kelani River	", "	0.1	", "	-	");
-        contactList.add(contact);
-        contact = new Contact("Dambulla", "Matale	", "Normal	", "	2.3	", "	Kelani River	", "	0.1	", "	-	");
-        contactList.add(contact);
-        contact = new Contact("Kolonnawa", "Colombo	", "Normal	", "	3	", "	Bolgoda Lake	", "	0.1	", "	-	");
-        contactList.add(contact);
-        contact = new Contact("Anuradhapura", "Anuradhapura	", "Normal	", "	2.3	", "	Kelani River	", "	0.1	", "	-	");
-        contactList.add(contact);
-        contact = new Contact("Ratnapura", "Ratnapura	", "Normal	", "	1.6	", "	Maha Oya	", "	0.1	", "	-	");
-        contactList.add(contact);
+        Risk risk = new Risk("Thimbirigasyaya", "Colombo", "Normal", "2.3", "Kelani River", "0.1", "-");
+        riskList.add(risk);
+        risk = new Risk("Dehiwala", "Colombo", "Normal", "2.3", "Kelani River", "0.1", "-");
+        riskList.add(risk);
+        risk = new Risk("Moratuwa", "Colombo", "Normal", "3	", "	Bolgoda Lake", "0.1", "-");
+        riskList.add(risk);
+        risk = new Risk("Kotte", "	Colombo", "Normal", "2.3", "	Kelani River", "0.1", "-");
+        riskList.add(risk);
+        risk = new Risk("Negombo", "Gampaha", "Normal", "1.6", "Maha Oya", "0.1", "-");
+        riskList.add(risk);
+        risk = new Risk("Kandy", "Kandy", "Normal", "3.7", "Mahaweli", "0.1", "-");
+        riskList.add(risk);
+        risk = new Risk("Sainthamarathu", "Ampara", "Normal", "2.3", "Kelani River", "0.1", "-");
+        riskList.add(risk);
+        risk = new Risk("Vavuniya", "Vavuniya", "Normal", "2.3", "Kelani River", "0.1", "-");
+        riskList.add(risk);
+        risk = new Risk("Galle", "Galle", "Normal", "3", "Bolgoda Lake", "0.1", "-");
+        riskList.add(risk);
+        risk = new Risk("Trincomalee Town and Gravets", "Trincomalee	", "	Normal	", "	2.3	", "	Kelani River	", "	0.1	", "	-	");
+        riskList.add(risk);
+        risk = new Risk("Manmunai North	", "Batticaloa	", "Normal	", "	1.6	", "	Maha Oya	", "	0.1	", "	-	");
+        riskList.add(risk);
+        risk = new Risk("Nallur	", "Jaffna	", "Normal	", "	3.7	", "	Mahaweli	", "	0.1	", "	-	");
+        riskList.add(risk);
+        risk = new Risk("Katana	", "Gampaha	", "Normal	", "	2.3	", "	Kelani River	", "	0.1	", "	-	");
+        riskList.add(risk);
+        risk = new Risk("Dambulla", "Matale	", "Normal	", "	2.3	", "	Kelani River	", "	0.1	", "	-	");
+        riskList.add(risk);
+        risk = new Risk("Kolonnawa", "Colombo	", "Normal	", "	3	", "	Bolgoda Lake	", "	0.1	", "	-	");
+        riskList.add(risk);
+        risk = new Risk("Anuradhapura", "Anuradhapura	", "Normal	", "	2.3	", "	Kelani River	", "	0.1	", "	-	");
+        riskList.add(risk);
+        risk = new Risk("Ratnapura", "Ratnapura	", "Normal	", "	1.6	", "	Maha Oya	", "	0.1	", "	-	");
+        riskList.add(risk);
 
         mAdapter.notifyDataSetChanged();
     }
@@ -183,7 +171,7 @@ public class MainActivity extends AppCompatActivity implements SportAdapter.Call
     }
 
     @Override
-    public void onContactSelected(Contact contact) {
+    public void onContactSelected(Risk risk) {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         ViewGroup viewGroup = findViewById(android.R.id.content);
         View dialogView = LayoutInflater.from(MainActivity.this).inflate(R.layout.aler_dialog, viewGroup, false);
@@ -197,13 +185,13 @@ public class MainActivity extends AppCompatActivity implements SportAdapter.Call
         final TextView txtIncreased = (TextView) dialogView.findViewById(R.id.increased_water_level);
         final TextView txtSafe = (TextView) dialogView.findViewById(R.id.nearest_safe_location);
 
-        txtLocation.setText(contact.getName());
-        txtDistrict.setText(contact.getDistrict());
-        txtRiskStatus.setText(contact.getRisk());
-        txtNearestRiver.setText(contact.getWater_level_near_river());
-        txtWaterLevel.setText(contact.getWater_level());
-        txtIncreased.setText(contact.getIncreased_water_level());
-        txtSafe.setText(contact.getSafest_location_near());
+        txtLocation.setText(risk.getName());
+        txtDistrict.setText(risk.getDistrict());
+        txtRiskStatus.setText(risk.getRisk());
+        txtNearestRiver.setText(risk.getWater_level_near_river());
+        txtWaterLevel.setText(risk.getWater_level());
+        txtIncreased.setText(risk.getIncreased_water_level());
+        txtSafe.setText(risk.getSafest_location_near());
 
         builder.setNegativeButton("Ok",
                 new DialogInterface.OnClickListener() {
@@ -224,22 +212,22 @@ public class MainActivity extends AppCompatActivity implements SportAdapter.Call
         Drawable dividerDrawable = ContextCompat.getDrawable(this, R.drawable.divider_drawable);
         mRecyclerView.addItemDecoration(new DividerItemDecoration(dividerDrawable));
 
-        mSports = new ArrayList<>();
-        mSportAdapter = new SportAdapter(mSports);
+        mNews = new ArrayList<>();
+        mNewsAdapter = new NewsAdapter(mNews);
 
         prepareDemoContent();
     }
 
     private void prepareDemoContent() {
-        mSports = new ArrayList<>();
+        mNews = new ArrayList<>();
         String[] sportsList = getResources().getStringArray(R.array.sports_titles);
         String[] sportsInfo = getResources().getStringArray(R.array.sports_info);
         String[] sportsSub = getResources().getStringArray(R.array.sports_sub_titles);
         for (int i = 0; i < sportsList.length; i++) {
-            mSports.add(new Sport(sportsInfo[i], sportsSub[i], sportsList[i]));
+            mNews.add(new News(sportsInfo[i], sportsSub[i], sportsList[i]));
         }
-        mSportAdapter.addItems(mSports);
-        mRecyclerView.setAdapter(mSportAdapter);
+        mNewsAdapter.addItems(mNews);
+        mRecyclerView.setAdapter(mNewsAdapter);
 
 
     }

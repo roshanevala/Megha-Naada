@@ -6,33 +6,30 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import lk.mobile.meghanaada.R;
-import lk.mobile.meghanaada.model.Sport;
+import lk.mobile.meghanaada.model.News;
 
-public class SportAdapter extends RecyclerView.Adapter<BaseViewHolder> {
-    private static final String TAG = "SportAdapter";
+public class NewsAdapter extends RecyclerView.Adapter<BaseViewHolder> {
+    private static final String TAG = "NewsAdapter";
     public static final int VIEW_TYPE_EMPTY = 0;
     public static final int VIEW_TYPE_NORMAL = 1;
 
     private Callback mCallback;
-    private List<Sport> mSportList;
+    private List<News> mNewsList;
 
-    public SportAdapter(List<Sport> sportList) {
-        mSportList = sportList;
+    public NewsAdapter(List<News> newsList) {
+        mNewsList = newsList;
     }
 
-    public SportAdapter(ArrayList<Sport> sportList) {
-        mSportList = sportList;
+    public NewsAdapter(ArrayList<News> newsList) {
+        mNewsList = newsList;
     }
 
     public void setCallback(Callback callback) {
@@ -60,7 +57,7 @@ public class SportAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     @Override
     public int getItemViewType(int position) {
-        if (mSportList != null && mSportList.size() > 0) {
+        if (mNewsList != null && mNewsList.size() > 0) {
             return VIEW_TYPE_NORMAL;
         } else {
             return VIEW_TYPE_EMPTY;
@@ -69,15 +66,15 @@ public class SportAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     @Override
     public int getItemCount() {
-        if (mSportList != null && mSportList.size() > 0) {
-            return mSportList.size();
+        if (mNewsList != null && mNewsList.size() > 0) {
+            return mNewsList.size();
         } else {
             return 1;
         }
     }
 
-    public void addItems(List<Sport> sportList) {
-        mSportList.addAll(sportList);
+    public void addItems(List<News> newsList) {
+        mNewsList.addAll(newsList);
         notifyDataSetChanged();
     }
 
@@ -111,30 +108,30 @@ public class SportAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         public void onBind(int position) {
             super.onBind(position);
 
-            final Sport mSport = mSportList.get(position);
+            final News mNews = mNewsList.get(position);
 
 
-            if (mSport.getTitle() != null) {
-                titleTextView.setText(mSport.getTitle());
+            if (mNews.getTitle() != null) {
+                titleTextView.setText(mNews.getTitle());
             }
 
-            if (mSport.getSubTitle() != null) {
-                newsTextView.setText(mSport.getSubTitle());
+            if (mNews.getSubTitle() != null) {
+                newsTextView.setText(mNews.getSubTitle());
             }
 
-            if (mSport.getInfo() != null) {
-                infoTextView.setText(mSport.getInfo());
+            if (mNews.getInfo() != null) {
+                infoTextView.setText(mNews.getInfo());
             }
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (mSport.getImageUrl() != null) {
+                    if (mNews.getImageUrl() != null) {
                         try {
                             Intent intent = new Intent();
                             intent.setAction(Intent.ACTION_VIEW);
                             intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                            intent.setData(Uri.parse(mSport.getImageUrl()));
+                            intent.setData(Uri.parse(mNews.getImageUrl()));
                             itemView.getContext().startActivity(intent);
                         } catch (Exception e) {
                             Log.e(TAG, "onClick: Image url is not correct");

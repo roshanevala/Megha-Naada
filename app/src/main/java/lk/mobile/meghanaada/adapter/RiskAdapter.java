@@ -6,29 +6,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import lk.mobile.meghanaada.R;
-import lk.mobile.meghanaada.model.Contact;
+import lk.mobile.meghanaada.model.Risk;
 
 /**
  * Created by ravi on 16/11/17.
  */
 
-public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyViewHolder>
+public class RiskAdapter extends RecyclerView.Adapter<RiskAdapter.MyViewHolder>
         implements Filterable {
     private Context context;
-    private List<Contact> contactList;
-    private List<Contact> contactListFiltered;
+    private List<Risk> riskList;
+    private List<Risk> riskListFiltered;
     private ContactsAdapterListener listener;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -43,18 +39,18 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
                 @Override
                 public void onClick(View view) {
                     // send selected contact in callback
-                    listener.onContactSelected(contactListFiltered.get(getAdapterPosition()));
+                    listener.onContactSelected(riskListFiltered.get(getAdapterPosition()));
                 }
             });
         }
     }
 
 
-    public ContactsAdapter(Context context, List<Contact> contactList, ContactsAdapterListener listener) {
+    public RiskAdapter(Context context, List<Risk> riskList, ContactsAdapterListener listener) {
         this.context = context;
         this.listener = listener;
-        this.contactList = contactList;
-        this.contactListFiltered = contactList;
+        this.riskList = riskList;
+        this.riskListFiltered = riskList;
     }
 
     @Override
@@ -67,15 +63,15 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
-        final Contact contact = contactListFiltered.get(position);
-        holder.name.setText(contact.getName());
-        holder.phone.setText(contact.getDistrict());
+        final Risk risk = riskListFiltered.get(position);
+        holder.name.setText(risk.getName());
+        holder.phone.setText(risk.getDistrict());
 
     }
 
     @Override
     public int getItemCount() {
-        return contactListFiltered.size();
+        return riskListFiltered.size();
     }
 
     @Override
@@ -85,10 +81,10 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
             protected FilterResults performFiltering(CharSequence charSequence) {
                 String charString = charSequence.toString();
                 if (charString.isEmpty()) {
-                    contactListFiltered = contactList;
+                    riskListFiltered = riskList;
                 } else {
-                    List<Contact> filteredList = new ArrayList<>();
-                    for (Contact row : contactList) {
+                    List<Risk> filteredList = new ArrayList<>();
+                    for (Risk row : riskList) {
 
                         // name match condition. this might differ depending on your requirement
                         // here we are looking for name or phone number match
@@ -97,23 +93,23 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
                         }
                     }
 
-                    contactListFiltered = filteredList;
+                    riskListFiltered = filteredList;
                 }
 
                 FilterResults filterResults = new FilterResults();
-                filterResults.values = contactListFiltered;
+                filterResults.values = riskListFiltered;
                 return filterResults;
             }
 
             @Override
             protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-                contactListFiltered = (ArrayList<Contact>) filterResults.values;
+                riskListFiltered = (ArrayList<Risk>) filterResults.values;
                 notifyDataSetChanged();
             }
         };
     }
 
     public interface ContactsAdapterListener {
-        void onContactSelected(Contact contact);
+        void onContactSelected(Risk risk);
     }
 }
